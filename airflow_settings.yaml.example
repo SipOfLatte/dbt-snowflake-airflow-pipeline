@@ -1,0 +1,21 @@
+airflow:
+  connections:
+    - conn_id: snowflake_conn
+      conn_type: snowflake
+      conn_host:
+      conn_schema: your_schema_here
+      conn_login: your_snowflake_username
+      conn_password:
+      conn_port:
+      conn_extra:
+        account: your_account_identifier
+        database: your_database_here
+        warehouse: your_warehouse_here
+        role: your_role_here
+  pools:
+    - pool_name:
+      pool_slot:
+      pool_description:
+  variables:
+    - variable_name:
+      variable_value:
