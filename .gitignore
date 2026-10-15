@@ -16,3 +16,10 @@ airflow.db
 
 **/.astro/dbt_metadata.json
 **/.astro/manifest.slim.json
+
+*.p8
+rsa_key.pub
+profiles.yml
+logs/
+dbt-env/
+dbt_venv/

@@ -88,7 +88,3 @@ dbt-dag/
 ## What I learned
 
 Building this from scratch (rather than just running pre-written code) meant working through the full stack of real-world friction: Snowflake authentication methods (SSO → password → key-pair), Python environment and dependency management, Docker networking issues between Airflow's containers, and how dbt's config and Airflow's DAG scanning actually behave under the hood. It's a small pipeline, but it touches every layer a real one does.
-
-## Credit
-
-Built while following along with [this tutorial](https://www.youtube.com/watch?v=OLXkGB7krGo), then adapted and debugged through to a working end-to-end deployment.
