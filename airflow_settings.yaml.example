@@ -12,6 +12,10 @@ airflow:
         database: your_database_here
         warehouse: your_warehouse_here
         role: your_role_here
+        private_key_content: |
+          -----BEGIN PRIVATE KEY-----
+          paste the contents of your rsa_key.p8 here
+          -----END PRIVATE KEY-----
   pools:
     - pool_name:
       pool_slot:

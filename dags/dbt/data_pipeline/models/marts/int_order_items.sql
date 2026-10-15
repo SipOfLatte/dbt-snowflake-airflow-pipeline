@@ -27,6 +27,3 @@ from
 join
     {{ ref('stg_tpch_line_items') }} as line_items
     on orders.order_key = line_items.order_key
-order by
-    orders.order_date,
-    line_items.line_number

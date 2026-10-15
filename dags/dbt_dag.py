@@ -5,20 +5,12 @@ from airflow import DAG  # noqa: F401
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles import SnowflakePrivateKeyPemProfileMapping
 
-with open(os.path.join(os.path.dirname(__file__), "rsa_key.p8")) as f:
-    private_key_content = f.read()
-
 profile_config = ProfileConfig(
     profile_name="data_pipeline",
     target_name="dev",
-    profile_mapping=SnowflakePrivateKeyPemProfileMapping(
-        conn_id="snowflake_conn",
-        profile_args={
-            "database": "dbt_db",
-            "schema": "dbt_schema",
-            "private_key": private_key_content,
-        },
-    ),
+    # Account, database, schema, warehouse and the private key (extra.private_key_content)
+    # all come from the snowflake_conn Airflow connection.
+    profile_mapping=SnowflakePrivateKeyPemProfileMapping(conn_id="snowflake_conn"),
 )
 
 dbt_snowflake_dag = DbtDag(
@@ -36,4 +28,6 @@ dbt_snowflake_dag = DbtDag(
     start_date=datetime(2026, 9, 3),
     catchup=False,
     dag_id="dbt_snowflake_dag",
+    tags=["dbt", "snowflake"],
+    default_args={"retries": 2},
 )
