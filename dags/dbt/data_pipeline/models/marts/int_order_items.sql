@@ -11,7 +11,7 @@ select
     orders.total_price,
     line_items.quantity,
     line_items.extended_price,
-    line_items.discount_percent,
+    line_items.discount_rate,
     line_items.tax_rate,
     line_items.return_flag,
     line_items.line_status,
@@ -21,7 +21,7 @@ select
     line_items.ship_instruct,
     line_items.ship_mode,
     line_items.comment,
-    {{ discounted_amount('line_items.extended_price', 'line_items.discount_percent') }} as discounted_amount
+    {{ discounted_amount('line_items.extended_price', 'line_items.discount_rate') }} as discounted_amount
 from
     {{ ref('stg_tpch_orders') }} as orders
 join

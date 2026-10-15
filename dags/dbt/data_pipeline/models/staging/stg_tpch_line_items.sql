@@ -6,7 +6,7 @@ select
     l_linenumber as line_number,
     l_quantity as quantity,
     l_extendedprice as extended_price,
-    l_discount as discount_percent,
+    l_discount as discount_rate,
     l_tax as tax_rate,
     l_returnflag as return_flag,
     l_linestatus as line_status,
